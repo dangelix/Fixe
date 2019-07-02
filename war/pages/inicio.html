@@ -1,0 +1,84 @@
+
+<div class="col-sm-8 col-sm-offset-2 text-left grid-one" ng-hide="listo">
+	<div id="page-wrapper">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="hidden-xs col-md-12">
+					<img alt="" class="img-responsive" src="images/FIndit.png" style="padding-top: 50px;">
+				</div>
+				<div class="hidden-lg hidden-md hidden-sm col-xs-12">
+					<img alt="" class="img-responsive" src="images/FInditsm.png">
+				</div>
+			</div>
+			<!-- /.col-lg-12 -->
+			<!-- /.row -->
+			<div class="col-md-8">
+				<div class="col-md-12">
+					<h1 class="page-header findit-text">N&uacute;mero de
+						referencia</h1>
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Referencia"
+							ng-model="id">
+						<div class="input-group-btn">
+							<button class="btn btn-default btn-findit" type="submit"
+								ng-click="buscar()">
+								<i class="glyphicon glyphicon-search"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12" style="text-align: center;">
+					<div theme="clean" vc-recaptcha class="col-md-12"
+						key="'6Ld4bikUAAAAAFhU2yq0ihv11nKTQPKwLr5qxfb5'"></div>
+				</div>
+				<!-- /.col-lg-12 -->
+			</div>
+		</div>
+		<div class="row">
+			<hr>
+		</div>
+	</div>
+</div>
+<div class="col-sm-8 col-sm-offset-2 text-left grid-one" ng-show="listo">
+	<div id="page-wrapper">
+		<div class="row">
+			<div class="col-lg-4 col-lg-offset-4">
+				<img alt="" src="images/FIndit.png">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header findit-text">Detalles</h1>
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+		<!-- /.row -->
+		<div class="row white-one">
+			<div class="col-md-3">
+				<b>Referencia:</b> {{servicio.id}}
+			</div>
+			<div class="col-md-3">
+				<b>Descripci&oacute;n:</b> {{servicio.detalle}}
+			</div>
+
+			<div class="col-md-3">
+				<b>Importe:</b> {{servicio.precio}}
+			</div>
+		</div>
+		<div class="row">
+			<hr>
+			<div class="col-md-3">
+				<button class="btn btn-findit" ng-click="facturar()"
+					ng-hide="Facturar  || servicio.precio==0">Facturar</button>
+			</div class="col-md-3">
+			<div>
+				<a class="btn2 btn-small btn-danger"
+					href="/servicio/obtenerPDF/{{servicio.uuid}}" download
+					ng-hide="Documento">PDF</a> <a class="btn2 btn-small btn-info"
+					href="/servicio/obtenerXML/{{servicio.uuid}}" download
+					ng-hide="Documento">XML</a>
+			</div>
+			<!-- /.col-lg-12 -->
+		</div>
+	</div>
+</div>

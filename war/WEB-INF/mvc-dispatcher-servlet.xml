@@ -1,0 +1,30 @@
+    
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+	<context:component-scan
+		base-package="com.tikal.fixe.springController, com.tikal.cacao.factura, com.tikal.cacao.factura.ws" />
+
+	<!-- 	DAOs  -->
+	<bean class="com.tikal.fixe.dao.imp.CompraDAOImp"></bean>
+	<bean class="com.tikal.fixe.dao.imp.FacturaDAOImpl"></bean>
+	<bean class="com.tikal.fixe.dao.imp.FolioDAOImp"></bean>
+	<bean class="com.tikal.fixe.dao.imp.BitacoraDAOImp"></bean>
+	 <bean id="prodClient" class="com.tikal.cacao.factura.ws.GenericClient" />
+    
+<!--     <bean id="testClient" class="com.tikal.kiosko.factura.ws.PruebaWSClient"/> -->
+
+	<!-- Register Bean for Objectify's Entities -->
+	<bean class="com.tikal.fixe.util.EntityRegister" scope="singleton"></bean>
+	<mvc:annotation-driven />
+
+
+</beans>
