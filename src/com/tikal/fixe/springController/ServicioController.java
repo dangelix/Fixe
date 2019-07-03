@@ -110,9 +110,12 @@ public class ServicioController {
 	
 	@RequestMapping(value="/validarCaptcha", method= RequestMethod.POST, produces="application/json")
 	public void valCaptcha(HttpServletRequest req, HttpServletResponse res,@RequestBody String captchaResponse) throws IOException{
+		System.out.println("Validando chapta....");
 		if (verificarCaptcha(captchaResponse)) {
-			res.getWriter().print("Validación correcta");
+			System.out.println("----");
+			res.getWriter().print("Validaciï¿½n correcta");
 		} else {
+			System.out.println("------------k");
 			res.sendError(400);
 		}
 		
@@ -174,7 +177,7 @@ public class ServicioController {
 			imagen.setImage("images/FIdit.png");
 			EmailSender mailero = new EmailSender();
 			//Imagen imagen = imagenDAO.get(cfdi.getEmisor().getRfc());
-			writer.println("¡La factura se timbró con éxito!");
+			writer.println("ï¿½La factura se timbrï¿½ con ï¿½xito!");
 			mailero.enviaFactura(servicioVO.getEmail(), factura, "", cfdi.getComplemento().getAny().get(0).toString(),
 					imagen);
 			
@@ -184,7 +187,7 @@ public class ServicioController {
 			String mensaje = (String) respuesta.get(2);
 			writer.print(mensaje);
 			RegistroBitacora bita= new RegistroBitacora();
-			bita.setEvento("Se facturó el folio "+compra.getId());
+			bita.setEvento("Se facturï¿½ el folio "+compra.getId());
 			bitacora.addReg(bita);
 		} else {
 			
@@ -282,7 +285,7 @@ public class ServicioController {
 				AsignadorDeCharset.asignar(req, res);
 				PrintWriter writer = res.getWriter();
 				writer.println(
-						"El Número de Folio Fiscal (UUID): ".concat(uuid).concat(" no pertenece a ninguna factura"));
+						"El Nï¿½mero de Folio Fiscal (UUID): ".concat(uuid).concat(" no pertenece a ninguna factura"));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -295,10 +298,10 @@ public class ServicioController {
 		Comprobante comprobante = ofComprobante.createComprobante();
 		
 		comprobante.setFecha(com.tikal.kiosko.util.Util.getXMLDate( new Date() ) );
-		comprobante.setLugarExpedicion("MÉXICO");
+		comprobante.setLugarExpedicion("Mï¿½XICO");
 		comprobante.setMoneda("MXN");
 		comprobante.setTipoDeComprobante("ingreso");
-		comprobante.setFormaDePago("Pago en una sola exhibición");
+		comprobante.setFormaDePago("Pago en una sola exhibiciï¿½n");
 		comprobante.setMetodoDePago("Efectivo");
 		//comprobante.setSubTotal(new BigDecimal(200));
 		//comprobante.setTotal(new BigDecimal(200.0));
@@ -306,7 +309,7 @@ public class ServicioController {
 
 		Comprobante.Emisor emisor = ofComprobante.createComprobanteEmisor();
 		//emisor.setRfc("AAA010101AAA");
-		emisor.setNombre("Find it Corporation México S.A. de C.V.");
+		emisor.setNombre("Find it Corporation Mï¿½xico S.A. de C.V.");
 		emisor.setRfc("FIC1704078IA");// para prueba con ValidarCfd32Client
 										// CARC7302234T5
 		//emisor.setNombre("CARLOS CASTILLO ROJAS");
@@ -317,7 +320,7 @@ public class ServicioController {
 //		ubicacionFiscalEmisor.setColonia("MARTIN CARRERA");
 //		ubicacionFiscalEmisor.setLocalidad("MEXICO, D.F.");
 //		ubicacionFiscalEmisor.setMunicipio("GUSTAVO A. MADERO");
-//		ubicacionFiscalEmisor.setEstado("Ciudad de México");
+//		ubicacionFiscalEmisor.setEstado("Ciudad de Mï¿½xico");
 //		ubicacionFiscalEmisor.setPais("MEXICO");
 //		ubicacionFiscalEmisor.setCodigoPostal("07070");
 //		emisor.setDomicilioFiscal(ubicacionFiscalEmisor);
@@ -333,8 +336,8 @@ public class ServicioController {
 //		ubicacionReceptor.setCalle("FRANCISCO MORENO LOCAL A");
 //		ubicacionReceptor.setColonia("LA VILLA DE GUADALUPE");
 //		ubicacionReceptor.setMunicipio("GUSTAVO A. MADERO");
-//		ubicacionReceptor.setEstado("Ciudad de México");
-//		ubicacionReceptor.setPais("MÉXICO");
+//		ubicacionReceptor.setEstado("Ciudad de Mï¿½xico");
+//		ubicacionReceptor.setPais("Mï¿½XICO");
 //		ubicacionReceptor.setCodigoPostal("CP. 07050");
 //		receptor.setDomicilio(ubicacionReceptor);
 //		comprobante.setReceptor(receptor);

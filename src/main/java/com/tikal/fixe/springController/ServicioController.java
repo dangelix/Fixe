@@ -122,13 +122,13 @@ public class ServicioController {
 	
 	@RequestMapping(value="/buscar/{id}", method= RequestMethod.GET, produces="application/json")
 	public void buscar(HttpServletRequest req, HttpServletResponse res,@PathVariable String id) throws IOException{
-		
+		System.out.println("jdjdjdjd");
 		res.getWriter().print(JsonConvertidor.toJson(compradao.get(id)));
 	}
 	
 	@RequestMapping(value="/buscar", method= RequestMethod.POST, produces="application/json")
 	public void buscar2(HttpServletRequest req, HttpServletResponse res,@RequestBody String json) throws IOException{
-		
+		System.out.println("jdjdjdj------d");
 		//CompraConCaptchaVO cVO = (CompraConCaptchaVO) JsonConvertidor.fromJson(json, CompraConCaptchaVO.class);
 		
 
